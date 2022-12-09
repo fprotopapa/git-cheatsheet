@@ -1,17 +1,27 @@
 # git-cheatsheet
 
--  [What is git](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#how-git-works)
+-  [How Git works](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#how-git-works)
 -  [Installation](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#installation)
 -  [Create Repository](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#create-repository)
 -  [Literature](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#literature)
 
-## How git works
+## How Git works
 
 ### Storing information
 
 The major difference between Git and any other VCS (Subversion and friends included) is the way Git thinks about its data. Conceptually, most other systems store information as a list of file-based changes. These other systems (CVS, Subversion, Perforce, Bazaar, and so on) think of the information they store as a set of files and the changes made to each file over time (this is commonly described as delta-based version control). Git doesn’t think of or store its data this way. Instead, Git thinks of its data more like a series of snapshots of a miniature filesystem. With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot. To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots.
 
-![Git storing snapshots](/images/git-storing-snapshots)
+![Git storing snapshots](images/git-storing-snapshots.png)
+
+When you make a commit, Git stores a commit object that contains a pointer to the snapshot of the content you staged. This object also contains the author’s name and email address, the message that you typed, and pointers to the commit or commits that directly came before this commit (its parent or parents): zero parents for the initial commit, one parent for a normal commit, and multiple parents for a commit that results from a merge of two or more branches.
+
+When you create the commit by running git commit, Git checksums each subdirectory (in this case, just the root project directory) and stores them as a tree object in the Git repository. Git then creates a commit object that has the metadata and a pointer to the root project tree so it can re-create that snapshot when needed.
+
+![Git file representation](images/git-file-representation.png)
+
+How does Git reduce needed space when creating snapshots. Wouldn’t it be nice if Git could store nearly identical files as deltas from one full object?
+
+It turns out that it can. The initial format in which Git saves objects on disk is called a “loose” object format. However, occasionally Git packs up several of these objects into a single binary file called a “packfile” in order to save space and be more efficient. Git does this if you have too many loose objects around, if you run the git gc command manually, or if you push to a remote server.
 
 ### Decentralized
 
@@ -32,9 +42,15 @@ Pay attention now — here is the main thing to remember about Git if you wa
 
 This leads us to the three main sections of a Git project: the working tree, the staging area, and the Git directory.
 
-![Git's three states](/images/git-three-states)
+![Git's three states](images/git-three-states.png)
 
 ### Branching
+
+The way Git branches is incredibly lightweight, making branching operations nearly instantaneous, and switching back and forth between branches generally just as fast. Unlike many other VCSs, Git encourages workflows that branch and merge often, even multiple times in a day.
+
+![Git branching](images/git-branching.png)
+
+Source: [Git Book](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F).
 
 ## Installation
 
