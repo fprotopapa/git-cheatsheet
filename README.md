@@ -54,11 +54,29 @@ Source: [Git Book](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
 ## Installation
 
+For all subpackages:
+```
+sudo apt install git-all
+```
+
+With small footprint:
+```
+sudo apt install git
+```
+
 ## Create Repository
 
 ```
-git init 
+git init <folder>
+
+git clone <url, e.g, git SSH: git@HOSTNAME:USERNAME/REPONAME.git>
+
+Add --bare to git init/clone to create a remote repo.
+Remote's name should end with '.git'
 ```
+
+## Configuration
+
 
 ## Literature
 
