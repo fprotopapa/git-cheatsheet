@@ -77,6 +77,25 @@ Remote's name should end with '.git'
 
 ## Configuration
 
+- Local: /.git/config – Repository-specific settings. Flag: --local
+- Global: /.gitconfig – User-specific settings. Flag: --global
+- System: /etc/gitconfig – System-wide settings. Flag: --system
+
+```
+Add remote URL to local config:
+git remote add <remote_name> <remote_repo_url>
+
+git config --global user.name <name>
+git config --global user.email <email>
+
+Create command alias:
+git config --global alias.ci commit
+```
+[Customize Git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
+
+## Basic Git Commands
+
+
 
 ## Literature
 
