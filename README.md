@@ -3,6 +3,9 @@
 -  [How Git Works](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#how-git-works)
 -  [Installation](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#installation)
 -  [Create Repository](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#create-repository)
+-  [Configuration](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#configuration)
+-  [Staging And Commiting](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#staging-and-commiting)
+-  [Git Diff](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#git-diff)
 -  [Literature](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#literature)
 
 ## How Git Works
@@ -93,9 +96,68 @@ git config --global alias.ci commit
 ```
 [Customize Git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
 
-## Basic Git Commands
+## Staging And Commiting
 
+Staging:
+```
+git add <file> // Add file
+git add <folder> // Add folder
+git add -p // Interactive staging
+```
 
+Commit:
+```
+git commit // Commit staged snapshot
+git commit -a // Commit a snapshot of all changes in the working directory (only tracked files)
+git commit -m "Commit Message" // Immediately creates a commit with a passed commit message
+git commit -am "Commit Message" 
+
+git commit --amend // Modify the last commit. Staged changes will be added to the previous commit & commit message can be edited.
+```
+
+## Git Diff
+
+```
+git diff // Compare working directory with staged area
+git diff --staged // Compare Staging area with last commit
+git diff ./path/to/file // Compares HEAD to specific file
+git diff 957fbc92b123030c389bf8b4b874522bdf2db72c ce489262a1ee34340440e55a0b99ea6918e19e7a // Comparing commits
+```
+
+Diff output:
+```
+diff --git a/somefile.txt b/somefile.txt // file
+index 245dde3..3925e28 100644 // git meta data
+--- a/somefile.txt // old version of file and legend
++++ b/somefile.txt // new version of file and legend
+@@ -1,9 +1,9 @@ // Begin of chunk, from line 1 extracted 9 lines from file a and extracted 9 lines (starting from line 1) from file b
+ a
+-b // File a
++bb // File b
+ c
+-d
++dd
+ e
+-f
+-g
++ff
++gg
+ h
+ k
+```
+
+Changing diff output:
+```
+git diff --color-words // Show difference on same line
+git diff --diff-highlight // Highlight changes
+```
+
+Diff branches:
+```
+git diff branch1..branch2 // Shows differences in branch1 and branch2 (.. and space work the same)
+git diff branch1...branch2 // Shows only differences in branch2, changes based of the merge-base (also known as most common ancestor)
+git diff main new_branch ./diff_test.txt // Compare file between branches
+```
 
 ## Literature
 
