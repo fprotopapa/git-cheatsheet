@@ -1,12 +1,12 @@
 # git-cheatsheet
 
--  [How Git Works](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#how-git-works)
--  [Installation](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#installation)
--  [Create Repository](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#create-repository)
--  [Configuration](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#configuration)
--  [Staging And Commiting](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#staging-and-commiting)
--  [Git Diff](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#git-diff)
--  [Literature](https://github.com/fprotopapa/git-cheatsheet/edit/main/README.md#literature)
+-  [How Git Works](https://github.com/fprotopapa/git-cheatsheet/main/README.md#how-git-works)
+-  [Installation](https://github.com/fprotopapa/git-cheatsheet/main/README.md#installation)
+-  [Create Repository](https://github.com/fprotopapa/git-cheatsheet/main/README.md#create-repository)
+-  [Configuration](https://github.com/fprotopapa/git-cheatsheet/main/README.md#configuration)
+-  [Staging And Commiting](https://github.com/fprotopapa/git-cheatsheet/main/README.md#staging-and-commiting)
+-  [Git Diff](https://github.com/fprotopapa/git-cheatsheet/main/README.md#git-diff)
+-  [Literature](https://github.com/fprotopapa/git-cheatsheet/main/README.md#literature)
 
 ## How Git Works
 
